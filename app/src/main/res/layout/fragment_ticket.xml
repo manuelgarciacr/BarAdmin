@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.BarAdmin.FullscreenContainer"
+    tools:context=".ui.Ticket.TicketFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        style="@style/card"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnMinus"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:backgroundTint="@color/red"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                android:text="@string/minus"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:iconPadding="0dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edtPrice"
+                app:layout_constraintEnd_toStartOf="@+id/edtQuantity"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/edtPrice" />
+
+            <EditText
+                android:id="@id/edtPrice"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:backgroundTint="@color/black_overlay"
+                android:digits="0123456789,."
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text20sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/btnBack"
+                app:layout_constraintEnd_toStartOf="@+id/btnMinus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnBack"
+                tools:ignore="LabelFor"
+                tools:text="17,25" />
+
+            <TextView
+                android:id="@+id/edtQuantity"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:backgroundTint="@color/black_overlay"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="#455A64"
+                android:textSize="@dimen/text20sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/btnMinus"
+                app:layout_constraintEnd_toStartOf="@+id/btnPlus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnMinus"
+                tools:ignore="LabelFor,TouchTargetSizeCheck"
+                tools:text="x2" />
+
+            <Button
+                android:id="@+id/btnEnd"
+                android:layout_width="0dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/green"
+                android:text="@string/sale_finished"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="93dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/red"
+                android:text="@string/cancel"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:cornerRadius="15dp"
+                app:layout_constraintEnd_toStartOf="@+id/edtPrice"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/green"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:text="@string/plus"
+                android:textSize="24sp"
+                app:iconPadding="0dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edtQuantity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/edtQuantity" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ticket"
+        style="@style/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/green"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_ticket"
+        app:layout_constraintEnd_toEndOf="@+id/rv_ticket" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        style="@style/card"
+        android:layout_width="396dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/cash" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/card" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/btnEnd2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <EditText
+                    android:id="@+id/edtCash"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textSize="@dimen/text20sp"
+                    tools:text="20" />
+
+                <TextView
+                    android:id="@+id/lblChange"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textSize="@dimen/text20sp"
+                    tools:text="15,55" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnEnd2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/green"
+                android:text="@string/sale_finished"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

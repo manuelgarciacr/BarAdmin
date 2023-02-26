@@ -1,0 +1,80 @@
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'eu.manuelgc.baradmin'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "eu.manuelgc.baradmin"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/INDEX.LIST', 'META-INF/AL2.0', 'META-INF/LGPL2.1', 'META-INF/LICENSE.md', 'META-INF/NOTICE.md', 'META-INF/io.netty.versions.properties', 'mozilla/public-suffix-list.txt', 'kotlin/coroutines/coroutines.kotlin_builtins', 'xsd/catalog.xml', 'kotlin/kotlin.kotlin_builtins', 'kotlin/reflect/reflect.kotlin_builtins', 'kotlin/collections/collections.kotlin_builtins', 'META-INF/DEPENDENCIES', 'kotlin/annotation/annotation.kotlin_builtins', 'kotlin/internal/internal.kotlin_builtins', 'kotlin/ranges/ranges.kotlin_builtins', 'jakarta.activation:jakarta.activation-api:1.2.1']
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.6.1' // 1.8.0' bug
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Multidex Default since minSDK 21
+    //implementation 'androidx.multidex:multidex::2.0.1'
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    //implementation "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3"
+
+    // Room
+    kapt "androidx.room:room-compiler:2.5.0"
+    implementation 'androidx.room:room-common:2.5.0'
+    implementation 'androidx.room:room-ktx:2.5.0'
+
+    // Picasso
+    //implementation 'com.squareup.picasso:picasso:2.71828'
+    // Glide seems to have better performance than Picasso
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    //annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    kapt 'com.github.bumptech.glide:compiler:4.13.2'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

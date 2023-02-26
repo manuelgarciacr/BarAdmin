@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/groupsFragment">
+
+    <fragment
+        android:id="@+id/groupsFragment"
+        android:name="eu.manuelgc.baradmin.ui.groups.GroupsFragment"
+        android:label="fragment_groups"
+        tools:layout="@layout/fragment_groups" >
+        <argument
+            android:name="groupId"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="subgroupId"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="productId"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="serviceId"
+            app:argType="string"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/next_level"
+            app:destination="@id/groupsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/ticket_action"
+            app:destination="@id/ticketFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/subgroupsFragment"
+        android:name="eu.manuelgc.baradmin.ui.subgroups.SubgroupsFragment"
+        android:label="fragment_subgroups"
+        tools:layout="@layout/fragment_subgroups" >
+        <action
+            android:id="@+id/product"
+            app:destination="@id/productsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="eu.manuelgc.baradmin.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" />
+    <fragment
+        android:id="@+id/ticketFragment"
+        android:name="eu.manuelgc.baradmin.ui.Ticket.TicketFragment"
+        android:label="fragment_ticket"
+        tools:layout="@layout/fragment_ticket" >
+        <argument
+            android:name="groupId"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="subgroupId"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="productId"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="serviceId"
+            app:argType="string"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/backAction"
+            app:destination="@id/groupsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+</navigation>

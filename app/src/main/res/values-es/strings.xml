@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sale">Venta</string>
+    <string name="product">Producto</string>
+    <string name="Price">Precio</string>
+    <string name="Quantity">Cantidad</string>
+    <string name="increase_quantity">Incrementar cantidad</string>
+    <string name="decrease_quantity">Decrementar cantidad</string>
+    <string name="cancel">Atrás</string>
+    <string name="sale_finished">Fin venta</string>
+    <string name="add">Más</string>
+    <string name="cancel_product">¿Cancelar producto?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="cash">Cash</string>
+    <string name="card">Card</string>
+</resources>
